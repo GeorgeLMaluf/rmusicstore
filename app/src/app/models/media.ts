@@ -3,7 +3,7 @@ export interface Media {
   description: string;
 }
 
-export interface MidiaResponse {
+export interface MediaResponse {
   total: number;
   itens: Media[];
 }

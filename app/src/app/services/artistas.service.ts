@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { MediaResponse } from 'src/app/models/media';
+import { ArtistaResponse } from 'src/app/models/artista'
 @Injectable({
   providedIn: 'root'
 })
-export class MediasService {
+export class ArtistasService {
   private headers = new HttpHeaders({
     'Content-type': 'application/json'
   });
@@ -15,7 +15,8 @@ export class MediasService {
   ) { }
 
   getAll(intervalo: string = '', pagina: number = 1) {
-    return this.http.get<MediaResponse>(`${environment.apiUrl}/tipo_media?intervalo=${intervalo}&pg=${pagina}`,
-      {headers: this.headers})
+    return this.http.get<ArtistaResponse>(`${environment.apiUrl}/artists?intervalo=${intervalo}&pg=${pagina}`,
+      { headers: this.headers}
+    );
   }
 }

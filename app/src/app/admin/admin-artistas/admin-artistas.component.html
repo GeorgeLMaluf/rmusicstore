@@ -1,6 +1,6 @@
 <main role="main" class="container">
   <h3>Artistas</h3>
-  <form [formGroup]="formulario" class="row">
+  <form [formGroup]="formulario" class="row" (ngSubmit)="filtrar()">
     <div class="form-group col">
       <label for="buscar">Pesquisar</label>
       <input type="text" class="form-control" id="buscar" formControlName="Buscar" placeholder="Digite aqui o nome do artista...">
@@ -19,10 +19,10 @@
           <th>&nbsp;</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>AC/DC</td>
+      <tbody *ngIf="(artistas)?.length > 0; else empty">
+        <tr *ngFor="let a of artistas">
+          <td>{{a.id }}</td>
+          <td>{{a.name }}</td>
           <td>
             <button type="button" class="btn btn-warning btn-sm">Editar</button>
             &nbsp;
@@ -34,7 +34,15 @@
   </div>
   <div class="row">
     <div class="col">
-      <pagination [totalItems]="100" previousText="Anterior" nextText="Próxima"></pagination>
+      <pagination [totalItems]="total" (pageChanged)="filtrar($event)" previousText="Anterior" nextText="Próxima"></pagination>
     </div>
   </div>
 </main>
+
+<ng-template #empty>
+  <tbody>
+    <tr>
+      <td colspan="3">Não há registros cadastrados.</td>
+    </tr>
+  </tbody>
+</ng-template>

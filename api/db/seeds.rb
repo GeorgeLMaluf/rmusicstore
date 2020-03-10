@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Gender.create([{description: 'Rock'}, {description: 'Jazz'}, {description: 'Disco'}])
 TipoMedia.create([{description: 'CD-ROM'},{description: 'Fita K7'},{ description: 'DVD'}])
+Artist.create([{name: 'AC/DC'},{name: 'Miles Davis'},{name: 'Anita Ward'}])
