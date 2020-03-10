@@ -366,3 +366,71 @@ Processing by GendersController#index as HTML
 Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1079)
 
 
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:42:34 -0300
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GendersController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (0.2ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 23ms (Views: 9.8ms | ActiveRecord: 7.8ms | Allocations: 5134)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:48:07 -0300
+Processing by GendersController#index as HTML
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (0.2ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.6ms | Allocations: 1659)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:48:52 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (0.4ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.7ms | Allocations: 1659)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:49:01 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (0.4ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.8ms | Allocations: 1639)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:49:51 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (1.4ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 8.3ms | ActiveRecord: 9.6ms | Allocations: 3839)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:50:37 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (0.2ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1659)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:50:54 -0300
+Processing by GendersController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:7:in `index'
+  [1m[36mGender Load (0.2ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 1639)
+
+

@@ -13,6 +13,8 @@ import { GenerosService } from 'src/app/services/generos.service';
 export class AdminGenerosComponent implements OnInit {
   formulario: FormGroup;
   generos: Genero[];
+  total: number;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -30,6 +32,7 @@ export class AdminGenerosComponent implements OnInit {
   {
     this.generoSrv.getAll()
       .subscribe(response => {
+        this.total = response.total;
         this.generos = response.itens;
       })
   }

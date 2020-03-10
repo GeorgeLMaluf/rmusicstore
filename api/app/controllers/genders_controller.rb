@@ -4,8 +4,9 @@ class GendersController < ApplicationController
   # GET /genders
   def index
     @genders = Gender.all.withoutTimes
+    @counter = Gender.all.count()
 
-    render json: { :itens => @genders }
+    render json: { :total => @counter, :itens => @genders }
   end
 
   # GET /genders/1

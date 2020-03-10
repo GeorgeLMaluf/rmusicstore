@@ -4,5 +4,6 @@ export interface Genero {
 }
 
 export interface GeneroResponse{
+  total: number;
   itens: Genero[];
 }
