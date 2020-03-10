@@ -12,13 +12,13 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { RouterModule } from '@angular/router';
 import { AdminGenerosComponent } from './admin-generos/admin-generos.component';
 import { AdminArtistasComponent } from './admin-artistas/admin-artistas.component';
-import { AdminMidiasComponent } from './admin-midias/admin-midias.component';
+import { AdminMediasComponent } from './admin-medias/admin-medias.component';
 import { AdminAlbunsComponent } from './admin-albuns/admin-albuns.component';
 
 
 
 @NgModule({
-  declarations: [AdminHeaderComponent, AdminPageComponent, AdminGenerosComponent, AdminArtistasComponent, AdminMidiasComponent, AdminAlbunsComponent],
+  declarations: [AdminHeaderComponent, AdminPageComponent, AdminGenerosComponent, AdminArtistasComponent, AdminMediasComponent, AdminAlbunsComponent],
   imports: [
     CommonModule,
     FormsModule,

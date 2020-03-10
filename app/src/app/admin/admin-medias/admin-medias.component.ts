@@ -1,44 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Genero } from 'src/app/models/genero';
-import { GenerosService } from 'src/app/services/generos.service';
+import { Media } from 'src/app/models/media';
+import { MediasService } from 'src/app/services/medias.service';
 
 
 @Component({
-  selector: 'app-admin-generos',
-  templateUrl: './admin-generos.component.html',
-  styleUrls: ['./admin-generos.component.scss']
+  selector: 'app-admin-medias',
+  templateUrl: './admin-medias.component.html',
+  styleUrls: ['./admin-medias.component.scss']
 })
-export class AdminGenerosComponent implements OnInit {
+export class AdminMediasComponent implements OnInit {
   formulario: FormGroup;
-  generos: Genero[];
+  medias: Media[];
   total: number;
-
 
   constructor(
     private formBuilder: FormBuilder,
-    private generoSrv: GenerosService
+    private mediaSrv: MediasService
   ) { }
 
   ngOnInit(): void {
-
     this.formulario = this.formBuilder.group({
-       Buscar: ['']
-     });
-    this.loadGeneros();
+      Buscar: ['']
+    });
+    this.loadMedias();
   }
 
-  private loadGeneros(
+  private loadMedias(
     Intervalo: string = '',
     Pagina: number = 1
   )
   {
-    this.generoSrv.getAll(Intervalo, Pagina)
+    this.mediaSrv.getAll(Intervalo, Pagina)
       .subscribe(response => {
         this.total = response.total;
-        this.generos = response.itens;
-      });
+        this.medias = response.itens;
+      })
   }
 
   filtrar(event: any = null) {
@@ -49,9 +47,9 @@ export class AdminGenerosComponent implements OnInit {
     if (event) {
       pagina = event.page;
     }
-    this.loadGeneros(
+    this.loadMedias(
       this.formulario.value.Buscar,
       pagina
-    );
+    )
   }
 }

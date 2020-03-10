@@ -6,3 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Gender.create([{description: 'Rock'}, {description: 'Jazz'}, {description: 'Disco'}])
+TipoMedia.create([{description: 'CD-ROM'},{description: 'Fita K7'},{ description: 'DVD'}])

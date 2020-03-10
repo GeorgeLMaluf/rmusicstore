@@ -1,6 +1,6 @@
 <main role="main" class="container">
   <h3>Gêneros</h3>
-  <form [formGroup]="formulario" class="row">
+  <form [formGroup]="formulario" class="row" (ngSubmit)="filtrar()">
     <div class="form-group col">
       <label for="buscar">Pesquisar</label>
       <input type="text" class="form-control" id="buscar" formControlName="Buscar" placeholder="Digite aqui o nome do gênero...">
@@ -9,7 +9,7 @@
       <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-search"></i>Pesquisar</button>
     </div>
   </form>
-  <button type="button" class="btn btn-primary">Novo</button>
+  <button type="button" class="btn btn-primary" [routerLink]="['./novo']" >Novo</button>
   <div class="table-responsive">
     <table class="table table-striped table-bordered">
       <thead>
@@ -34,7 +34,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <pagination [totalItems]="total" previousText="Anterior" nextText="Próxima"></pagination>
+      <pagination [totalItems]="total" (pageChanged)="filtrar($event)" previousText="Anterior" nextText="Próxima"></pagination>
     </div>
   </div>
 </main>

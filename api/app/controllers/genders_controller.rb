@@ -3,10 +3,19 @@ class GendersController < ApplicationController
 
   # GET /genders
   def index
-    @genders = Gender.all.withoutTimes
-    @counter = Gender.all.count()
-
-    render json: { :total => @counter, :itens => @genders }
+    if params[:intervalo]
+      if params[:pg]
+        @pagina = params[:pg].to_i
+        @genders = Gender.all.withoutTimes.where("UPPER(description) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
+      else
+        @genders = Gender.all.withoutTimes.where("UPPER(description) ~* ?", params[:intervalo].upcase)
+      end
+      @counter = Gender.all.onlyId.where("UPPER(description) ~* ?", params[:intervalo].upcase).count()
+    else
+      @genders = Gender.all.withoutTimes
+      @counter = Gender.all.onlyId.count()
+    end
+    render json: { :total => @counter, :itens => @genders }, status: :ok
   end
 
   # GET /genders/1
