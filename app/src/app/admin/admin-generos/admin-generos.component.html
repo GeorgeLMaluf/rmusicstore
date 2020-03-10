@@ -19,10 +19,10 @@
           <th>&nbsp;</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Rock</td>
+      <tbody *ngIf="(generos)?.length > 0; else empty">
+        <tr *ngFor="let g of generos">
+          <td>{{ g.id }}</td>
+          <td>{{ g.description }}</td>
           <td>
             <button type="button" class="btn btn-warning btn-sm">Editar</button>
             &nbsp;
@@ -38,3 +38,11 @@
     </div>
   </div>
 </main>
+
+<ng-template #empty>
+  <tbody>
+    <tr>
+      <td colspan="3">Não há registros cadastrados.</td>
+    </tr>
+  </tbody>
+</ng-template>

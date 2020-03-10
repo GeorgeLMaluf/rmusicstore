@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Genero } from 'src/app/models/genero';
+import { GenerosService } from 'src/app/services/generos.service';
 
 
 @Component({
@@ -10,15 +12,25 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AdminGenerosComponent implements OnInit {
   formulario: FormGroup;
+  generos: Genero[];
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private generoSrv: GenerosService
   ) { }
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       Buscar: ['']
     });
+    this.loadGeneros();
   }
 
+  private loadGeneros()
+  {
+    this.generoSrv.getAll()
+      .subscribe(response => {
+        this.generos = response.itens;
+      })
+  }
 }

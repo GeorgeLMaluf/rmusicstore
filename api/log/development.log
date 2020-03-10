@@ -1,0 +1,368 @@
+  [1m[35m (534.6ms)[0m  [1m[35mCREATE DATABASE "musicstore_development" ENCODING = 'unicode'[0m
+  [1m[35m (554.7ms)[0m  [1m[35mCREATE DATABASE "musicstore_test" ENCODING = 'unicode'[0m
+  [1m[35m (34.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6153013112499613500)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGenders (20200310120101)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "genders" ("id" bigserial primary key, "description" character varying(50), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (9.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200310120101"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-10 12:07:59.028273"], ["updated_at", "2020-03-10 12:07:59.028273"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6153013112499613500)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (123.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "musicstore_development"[0m
+  [1m[35m (158.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "musicstore_test"[0m
+  [1m[35m (557.0ms)[0m  [1m[35mCREATE DATABASE "musicstore_development" ENCODING = 'unicode'[0m
+  [1m[35m (601.8ms)[0m  [1m[35mCREATE DATABASE "musicstore_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genders" CASCADE[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "genders" ("id" bigserial primary key, "description" character varying(50), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200310120101)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-10 12:19:57.449932"], ["updated_at", "2020-03-10 12:19:57.449932"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4f5a6f724335f7e8fb7d684a8475b7964a865359"], ["created_at", "2020-03-10 12:19:57.468770"], ["updated_at", "2020-03-10 12:19:57.468770"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genders" CASCADE[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "genders" ("id" bigserial primary key, "description" character varying(50), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200310120101)[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-10 12:19:57.554176"], ["updated_at", "2020-03-10 12:19:57.554176"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-03-10 12:19:57.591742"], ["key", "environment"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4f5a6f724335f7e8fb7d684a8475b7964a865359"], ["created_at", "2020-03-10 12:19:57.609235"], ["updated_at", "2020-03-10 12:19:57.609235"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Rock"], ["LIMIT", 1]]
+  [1m[36mGender Create (0.6ms)[0m  [1m[32mINSERT INTO "genders" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Rock"], ["created_at", "2020-03-10 12:19:57.691499"], ["updated_at", "2020-03-10 12:19:57.691499"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Jazz"], ["LIMIT", 1]]
+  [1m[36mGender Create (0.3ms)[0m  [1m[32mINSERT INTO "genders" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Jazz"], ["created_at", "2020-03-10 12:19:57.708286"], ["updated_at", "2020-03-10 12:19:57.708286"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Disco"], ["LIMIT", 1]]
+  [1m[36mGender Create (0.4ms)[0m  [1m[32mINSERT INTO "genders" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Disco"], ["created_at", "2020-03-10 12:19:57.723997"], ["updated_at", "2020-03-10 12:19:57.723997"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6153013112499613500)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6153013112499613500)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Rock"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Jazz"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Disco"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/gender" for 127.0.0.1 at 2020-03-10 09:40:17 -0300
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/gender"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2020-03-10 09:40:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:40:22 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (1.7ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 30ms (Views: 16.7ms | ActiveRecord: 11.1ms | Allocations: 4562)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:40:58 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (0.5ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1120)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:57:33 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.7ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.7ms | Allocations: 1160)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:57:45 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.4ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 1101)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:58:51 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 1101)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:59:07 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1101)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 09:59:52 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1120)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:01:13 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (5.8ms)[0m  [1m[34mSELECT "genders".* FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 9ms (Views: 3.1ms | ActiveRecord: 5.8ms | Allocations: 1120)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:07:57 -0300
+Processing by GendersController#index as HTML
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 197)
+
+
+  
+SyntaxError (/home/george/rmusicstore/api/app/models/gender.rb:4: syntax error, unexpected '{', expecting end
+    scope :withoutTimes { select ('id, description')}
+                        ^
+/home/george/rmusicstore/api/app/models/gender.rb:4: syntax error, unexpected '}', expecting end
+...s { select ('id, description')}
+...                              ^):
+  
+app/models/gender.rb:4: syntax error, unexpected '{', expecting end
+app/models/gender.rb:4: syntax error, unexpected '}', expecting end
+app/models/gender.rb:4: syntax error, unexpected '{', expecting end
+app/models/gender.rb:4: syntax error, unexpected '}', expecting end
+app/controllers/genders_controller.rb:6:in `index'
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:08:54 -0300
+Processing by GendersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+
+
+  
+SyntaxError (/home/george/rmusicstore/api/app/models/gender.rb:4: syntax error, unexpected '{', expecting end
+    scope :withoutTimes { select ( :id, :description)}
+                        ^
+/home/george/rmusicstore/api/app/models/gender.rb:4: syntax error, unexpected ',', expecting ')'
+...e :withoutTimes { select ( :id, :description)}
+...                              ^):
+  
+app/models/gender.rb:4: syntax error, unexpected '{', expecting end
+app/models/gender.rb:4: syntax error, unexpected ',', expecting ')'
+app/models/gender.rb:4: syntax error, unexpected '{', expecting end
+app/models/gender.rb:4: syntax error, unexpected ',', expecting ')'
+app/controllers/genders_controller.rb:6:in `index'
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:09:35 -0300
+Processing by GendersController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 186)
+
+
+  
+SyntaxError (/home/george/rmusicstore/api/app/models/gender.rb:3: syntax error, unexpected '{', expecting end
+    scope :withoutTimes { select( :id, :description)}
+                        ^
+/home/george/rmusicstore/api/app/models/gender.rb:3: syntax error, unexpected '}', expecting end
+...s { select( :id, :description)}
+...                              ^):
+  
+app/models/gender.rb:3: syntax error, unexpected '{', expecting end
+app/models/gender.rb:3: syntax error, unexpected '}', expecting end
+app/models/gender.rb:3: syntax error, unexpected '{', expecting end
+app/models/gender.rb:3: syntax error, unexpected '}', expecting end
+app/controllers/genders_controller.rb:6:in `index'
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:11:15 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (1.2ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 75ms (Views: 13.8ms | ActiveRecord: 21.9ms | Allocations: 4244)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:11:22 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms | Allocations: 1027)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:11:37 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1027)
+
+
+Started GET "/generos" for 127.0.0.1 at 2020-03-10 10:11:50 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/generos"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:11:58 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (0.4ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1026)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:15:12 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (2.1ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 30ms (Views: 13.9ms | ActiveRecord: 18.0ms | Allocations: 3213)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:15:16 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.3ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 1026)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:15:23 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.4ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1026)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:21:56 -0300
+  
+SyntaxError (/home/george/rmusicstore/api/app/controllers/genders_controller.rb:8: syntax error, unexpected =>
+    render json: => { :itens => @genders }
+                 ^~):
+  
+app/controllers/genders_controller.rb:8: syntax error, unexpected =>
+app/controllers/genders_controller.rb:8: syntax error, unexpected =>
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:23:43 -0300
+Processing by GendersController#index as HTML
+  [1m[36mGender Load (0.4ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 24ms (Views: 10.5ms | ActiveRecord: 11.3ms | Allocations: 4182)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:23:50 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.5ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms | Allocations: 1079)
+
+
+Started GET "/genders" for 127.0.0.1 at 2020-03-10 10:24:21 -0300
+Processing by GendersController#index as HTML
+  Parameters: {"gender"=>{}}
+  [1m[36mGender Load (0.5ms)[0m  [1m[34mSELECT "genders"."id", "genders"."description" FROM "genders"[0m
+  ↳ app/controllers/genders_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1079)
+
+

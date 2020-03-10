@@ -1,0 +1,57 @@
+  [1m[35m (231.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "musicstore_test"[0m
+  [1m[35m (720.8ms)[0m  [1m[35mCREATE DATABASE "musicstore_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "genders" CASCADE[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "genders" ("id" bigserial primary key, "description" character varying(50), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200310120101)[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-03-10 12:08:06.487696"], ["updated_at", "2020-03-10 12:08:06.487696"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4f5a6f724335f7e8fb7d684a8475b7964a865359"], ["created_at", "2020-03-10 12:08:06.495730"], ["updated_at", "2020-03-10 12:08:06.495730"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGender Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[36mGender Create (0.6ms)[0m  [1m[32mINSERT INTO "genders" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Blues"], ["created_at", "2020-03-10 12:15:59.848666"], ["updated_at", "2020-03-10 12:15:59.848666"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mGender Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGender Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGender Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[36mGender Create (0.4ms)[0m  [1m[32mINSERT INTO "genders" ("description", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["description", "Blues"], ["created_at", "2020-03-10 12:16:34.282987"], ["updated_at", "2020-03-10 12:16:34.282987"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mGender Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "genders" WHERE "genders"."description" = $1 LIMIT $2[0m  [["description", "Blues"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
