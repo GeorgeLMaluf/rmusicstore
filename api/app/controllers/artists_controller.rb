@@ -7,13 +7,13 @@ class ArtistsController < ApplicationController
     if params[:intervalo]
       if params[:pg]
         @pagina = params[:pg].to_i
-        @artists = Artist.all.withoutTimes.where("UPPER(name) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
+        @artists = Artist.all.select(:id, :name).where("UPPER(name) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
       else
-        @artists = Artist.all.withoutTimes.where("UPPER(name) ~* ?", params[:intervalo].upcase)
+        @artists = Artist.all.select(:id, :name).where("UPPER(name) ~* ?", params[:intervalo].upcase)
       end
       @counter = Artist.all.onlyId.where("UPPER(name) ~* ?", params[:intervalo].upcase).count()
     else
-      @artists = Artist.all.withoutTimes
+      @artists = Artist.all.select(:id, :name)
       @counter = Artist.all.onlyId.count()
     end    
     render json: { :total => @counter, :itens => @artists }, status: :ok

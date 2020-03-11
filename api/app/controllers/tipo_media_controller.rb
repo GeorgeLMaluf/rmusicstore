@@ -6,13 +6,13 @@ class TipoMediaController < ApplicationController
     if params[:intervalo]
       if params[:pg]
         @pagina = params[:pg].to_i
-        @tipo_media = TipoMedia.all.withoutTimes.where("UPPER (description) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
+        @tipo_media = TipoMedia.all.select(:id, :description).where("UPPER (description) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
       else
-        @tipo_media = TipoMedia.all.withoutTimes.where("UPPER (description) ~* ?", params[:intervalo].upcase)
+        @tipo_media = TipoMedia.all.select(:id, :description).where("UPPER (description) ~* ?", params[:intervalo].upcase)
       end
       @counter = TipoMedia.all.onlyId.where("UPPER (description) ~* ?", params[:intervalo].upcase).count()
     else
-      @tipo_media = TipoMedia.all.withoutTimes
+      @tipo_media = TipoMedia.all.select(:id, :description)
       @counter = TipoMedia.all.onlyId.count()
     end
     render json: { :total => @counter, :itens => @tipo_media}, status: :ok

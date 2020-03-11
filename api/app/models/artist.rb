@@ -1,5 +1,5 @@
 class Artist < ApplicationRecord
     validates :name, presence: true
-    scope :withoutTimes, -> { select( :id, :name)}
+    has_many :albuns
     scope :onlyId, -> { select(:id)}
 end

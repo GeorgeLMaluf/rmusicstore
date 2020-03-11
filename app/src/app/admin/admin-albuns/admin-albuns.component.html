@@ -1,9 +1,9 @@
 <main role="main" class="container">
   <h3>Albuns</h3>
-  <form [formGroup]="formulario" class="row">
+  <form [formGroup]="formulario" class="row" (ngSubmit)="filtrar()">
     <div class="form-group col">
       <label for="buscar">Pesquisar</label>
-      <input type="text" class="form-control" id="buscar" formControlName="Buscar" placeholder="Digite aqui o nome do artista...">
+      <input type="text" class="form-control" id="buscar" formControlName="Buscar" placeholder="Digite aqui o título do album...">
     </div>
     <div class="form-group col-auto align-self-end">
       <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-search"></i>Pesquisar</button>
@@ -24,15 +24,15 @@
           <th>&nbsp;</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
+      <tbody *ngIf="(albuns)?.length > 0; else empty">
+        <tr *ngFor="let a of albuns">
           <td><img style="width: 32px; height:32px;" src="/assets/lp.png"></td>
-          <td>1</td>
-          <td>Black Ice</td>
-          <td>AC/CD</td>
-          <td>Rock</td>
-          <td>CD-ROM</td>
-          <td>R$ 4,99</td>
+          <td>{{a.id}}</td>
+          <td>{{a.title}}</td>
+          <td>{{a.artist.name}}/td>
+          <td>{{a.gender.description}}</td>
+          <td>{{a.tipo_media.description}}</td>
+          <td>{{a.price}}</td>
           <td>
             <button type="button" class="btn btn-warning btn-sm">Editar</button>
             &nbsp;
@@ -44,7 +44,15 @@
   </div>
   <div class="row">
     <div class="col">
-      <pagination [totalItems]="100" previousText="Anterior" nextText="Próxima"></pagination>
+      <pagination [totalItems]="total" (pageChanged)="filtrar($event)" previousText="Anterior" nextText="Próxima"></pagination>
     </div>
   </div>
 </main>
+
+<ng-template #empty>
+  <tbody>
+    <tr>
+      <td colspan="7">Não há registros cadastrados.</td>
+    </tr>
+  </tbody>
+</ng-template>

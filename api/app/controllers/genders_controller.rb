@@ -6,13 +6,13 @@ class GendersController < ApplicationController
     if params[:intervalo]
       if params[:pg]
         @pagina = params[:pg].to_i
-        @genders = Gender.all.withoutTimes.where("UPPER(description) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
+        @genders = Gender.all.select(:id, :description).where("UPPER(description) ~* ?", params[:intervalo].upcase).limit(10).offset((@pagina - 1) * 10)
       else
-        @genders = Gender.all.withoutTimes.where("UPPER(description) ~* ?", params[:intervalo].upcase)
+        @genders = Gender.all.select(:id, :description).where("UPPER(description) ~* ?", params[:intervalo].upcase)
       end
       @counter = Gender.all.onlyId.where("UPPER(description) ~* ?", params[:intervalo].upcase).count()
     else
-      @genders = Gender.all.withoutTimes
+      @genders = Gender.all.select(:id, :description)
       @counter = Gender.all.onlyId.count()
     end
     render json: { :total => @counter, :itens => @genders }, status: :ok

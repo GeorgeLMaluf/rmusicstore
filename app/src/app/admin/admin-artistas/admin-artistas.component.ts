@@ -51,5 +51,4 @@ export class AdminArtistasComponent implements OnInit {
       pagina
     )
   }
-
 }
