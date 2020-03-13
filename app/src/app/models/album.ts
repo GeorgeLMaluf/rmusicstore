@@ -5,11 +5,14 @@ import { Media } from './media';
 export interface Album {
   id: number;
   title: string;
+  gender_id: number;
+  artist_id: number,
+  tipo_media_id: number,
+  cover: string;
+  price: number;
   gender: Genero;
   artist: Artista;
   tipo_media: Media;
-  cover: string;
-  price: number;
 }
 
 export interface AlbumResponse {

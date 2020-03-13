@@ -23,13 +23,17 @@ class AlbumsController < ApplicationController
         {gender: {only: [:id, :description]}},
         {artist: {only: [:id, :name]}},
         {tipo_media: {only: [:id, :description]}}
-      ], only: [:id, :title, :gender, :artist, :tipo_media, :cover, :price])
+      ], only: [:id, :title, :gender_id, :artist_id, :tipo_media_id, :cover, :price,  :gender, :artist, :tipo_media])      
     }, status: :ok
   end
 
   # GET /albums/1
   def show
-    render json: @album
+    render json: @album.as_json(include: [
+      {gender: {only: [:id, :description]}},
+      {artist: {only: [:id, :name]}},
+      {tipo_media: {only: [:id, :description]}}
+    ], only: [:id, :title, :gender_id, :artist_id, :tipo_media_id, :cover, :price,  :gender, :artist, :tipo_media])
   end
 
   # POST /albums
